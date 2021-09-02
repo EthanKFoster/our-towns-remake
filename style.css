@@ -39,6 +39,36 @@ main
 	margin: 0 auto;
 }
 
+.homeReports
+{
+	height: 600px;
+
+	display: grid;
+	grid-template-rows: 100%;
+	grid-template-columns: 50% 50%;
+
+	grid-template-areas: 'firstPost genPosts';
+}
+
+.postOne
+{
+	grid-area: firstPost;
+}
+
+.genPosts
+{
+	grid-area: genPosts;
+
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.genPost
+{
+	flex: 1 1 100%;
+}
+
+/* Banner CSS */
 .banner
 {
 	height: 504px;
@@ -72,9 +102,45 @@ main
 	
 }
 
+/* End Banner CSS */
+
 .mustardYellow
 {
 	color: #ff0;
 	margin: 0;
 	padding: 0;
 }
+
+/* Title lines */
+.separator
+{
+  display:flex;
+  align-items: center;
+	width: 100%;
+
+	margin-top: 5rem;
+
+	text-transform: uppercase;
+}
+
+.separator .line-s
+{
+  height: 3px;
+  flex: 1;
+  background-color: #ff0;
+}
+
+.separator .line-e
+{
+	height: 3px;
+	flex: 20;
+	background-color: #ff0;
+}
+
+.separator h2
+{
+  padding: 0 2rem;
+	color: #444;
+}
+
+/* End Title Lines */
