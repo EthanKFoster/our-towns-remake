@@ -1,6 +1,5 @@
 <? get_header();?>
 
-
 <main class="homepage">
 	<div class="banner" style="background: url('<? echo get_theme_file_uri('/images/towns-banner.png');?>'); background-size: cover; background-position: top right; background-repeat: no-repeat;">
 			<div class="blue-diagonal" style="background: url('<? echo get_theme_file_uri('/images/blue-diagonal.png');?>')">
@@ -21,7 +20,7 @@
 
 	<div class="homeReports">
 	<?
-		if (have_posts())
+		if(have_posts())
 		{
 			$postNumber = 1;
 			if (is_home() && !is_front_page())
@@ -30,8 +29,7 @@
 				<header>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
-				<?
-			} ?>
+				<? } ?>
 
 			<div class="postOne">
 			<?
@@ -39,7 +37,7 @@
 				{
 					the_post();
 					get_template_part('template-parts/content', 'first-post');
-					echo $postNumber;
+					// echo 'post '.$postNumber;
 					break;
 				} ?>
 			</div>
@@ -54,7 +52,8 @@
 					}
 					the_post();
 					get_template_part('template-parts/content', get_post_type());
-					echo $postNumber++;
+					// echo 'post '.$postNumber++;
+					$postNumber++;
 					if($postNumber>5)break;
 				} ?>
 			</div>
@@ -64,11 +63,17 @@
 		else
 		{
 			get_template_part( 'template-parts/content', 'none' );
-		}
-		?>
+		} ?>
+	</div>
+
+	<div class="previous-reports">
+		<h1>Previous Reports</h1>
+		<p>Read past content from the website here.</p>
+	</div>
+
+	<div class="reports-carousel">
+		<h2 class="reports-carousel-title">Voice From America</h2>
 	</div>
 </main>
-
-
 
 <? get_footer();?>

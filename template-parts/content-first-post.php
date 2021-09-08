@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
+ * Template part for displaying first post
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -9,10 +9,10 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('genPost'); ?>>
-<header class="entry-header">
-	<!-- <div class="imgBlock"></div> -->
-	<?php our_towns_post_thumbnail('small'); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class('postOne'); ?>>
+	<header class="entry-header">
+		<?php our_towns_post_thumbnail('big'); ?>
+		<!-- <div class="imgBlock"></div> -->
 		<?php
 		if (is_singular()) :
 			the_title( '<h1 class="entry-title">', '</h1>' );

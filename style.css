@@ -39,9 +39,30 @@ main
 	margin: 0 auto;
 }
 
+/* Index Reports Styling */
+
+.imgBlock
+{
+	width: 100%;
+	height: 20rem;
+	background-color: cadetblue;
+}
+
+.img-chill
+{
+	height: 10rem;
+	width: 100%;
+}
+
+.img-no-chill
+{
+	height: 20rem;
+	width: 100%;
+}
+
 .homeReports
 {
-	height: 600px;
+	height: 905px;
 
 	display: grid;
 	grid-template-rows: 100%;
@@ -50,23 +71,32 @@ main
 	grid-template-areas: 'firstPost genPosts';
 }
 
-.postOne
-{
-	grid-area: firstPost;
-}
-
 .genPosts
 {
 	grid-area: genPosts;
 
 	display: flex;
+	justify-content: space-around;
 	flex-wrap: wrap;
+}
+
+.postOne
+{
+	grid-area: firstPost;
 }
 
 .genPost
 {
-	flex: 1 1 100%;
+	flex: 0 1 40%;
 }
+
+.postOne a, .genPost a
+{
+	color: black;
+	text-decoration: none;
+}
+
+/* Index Reports Styling */
 
 /* Banner CSS */
 .banner
@@ -95,11 +125,6 @@ main
 .banner-text-container
 {
 	width: 35rem;
-}
-
-.banner-text
-{
-	
 }
 
 /* End Banner CSS */
@@ -144,3 +169,27 @@ main
 }
 
 /* End Title Lines */
+
+
+
+/* Voices From America Area */
+
+.reports-carousel
+{
+	height: 20vh;
+
+	border: 3px solid #ffde40;
+
+	padding: 75px 5%;
+}
+
+.reports-carousel-title
+{
+	position: relative;
+	bottom: 6rem;
+
+	background-color: white;
+	padding: 1rem;
+}
+
+/* End Voices From America Area */
