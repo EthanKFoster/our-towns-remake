@@ -30,7 +30,6 @@
 					{
 						$posts->the_post();
 						get_template_part('template-parts/content', 'first-post');
-						// echo 'post '.$postNumber;
 						break;
 					} ?>
 				</div>
@@ -45,7 +44,6 @@
 						}
 						$posts->the_post();
 						get_template_part('template-parts/content', get_post_type());
-						// echo 'post '.$postNumber++;
 						$postNumber++;
 						if($postNumber>5)break;
 					} ?>
