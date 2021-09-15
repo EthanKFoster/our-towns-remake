@@ -26,6 +26,7 @@
 			));?>
 				<div class="col-6">
 				<?
+				$postNumber = 1;
 					while ($posts->have_posts())
 					{
 						$posts->the_post();
@@ -37,16 +38,16 @@
 				<?
 					while($posts->have_posts())
 					{
-						if($postNumber === 1)
+						if($postNumber>4)
 						{
-							$postNumber++;
-							continue;
+							break;
 						}
 						$posts->the_post();
 						get_template_part('template-parts/content', get_post_type());
 						$postNumber++;
-						if($postNumber>5)break;
-					} ?>
+					}
+					wp_reset_query();
+					?>
 				</div>
 		</div>
 	</div>
@@ -56,38 +57,129 @@
 		<p>Read past content from the website here.</p>
 	</div>
 
-	<div class="container">
-		<h2 class="reports-carousel-title">Voice From America</h2>
-		<div class="row reports-carousel">
-			<?
-				$postNumber = 1;
-				while($posts->have_posts())
-				{
-					$posts->the_post();
-					?>
-					<div class="col-4">
-						<a href="<? the_permalink();?>">
-							<header class="entry-header">
-							<?php our_towns_post_thumbnail('small');
-								if (is_singular()) :
-									the_title( '<h1 class="entry-title">', '</h1>' );
-								else :
-									?> <h1><? the_title();?></h1><?
-								endif;?>
-							</header><!-- .entry-header -->
-							<div class="entry-content">
-								<? the_excerpt();?>
-							</div> <!-- .entry-content -->
-						</a>
-					</div>
+	<div class="container reports-carousel">
+	<h2 class="reports-carousel-title">Voice From America</h2>
+		<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<div class="row">
 					<?
-					if($postNumber === 3)
-					{
-						break;
-					}
-					$postNumber++;
-				}
-			?>
+						$carouselPosts = new WP_Query(array(
+							'post_type' => 'post'
+						));
+						$postNumber = 1;
+						while($carouselPosts->have_posts())
+						{
+							$carouselPosts->the_post();
+							?>
+							<div class="col-4 genPost">
+								<a href="<? the_permalink();?>">
+									<header class="entry-header">
+									<?php our_towns_post_thumbnail('small');
+										if (is_singular()) :
+											the_title( '<h1 class="entry-title">', '</h1>' );
+										else :
+											?> <h1><? the_title();?></h1><?
+										endif;?>
+									</header><!-- .entry-header -->
+									<div class="entry-content">
+										<? the_excerpt();?>
+									</div> <!-- .entry-content -->
+								</a>
+							</div>
+							<?
+							if($postNumber === 3)
+							{
+								break;
+							}
+							$postNumber++;
+						}
+					?>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="row">
+					<?
+						$postNumber = 1;
+						while($carouselPosts->have_posts())
+						{
+							$carouselPosts->the_post();
+							?>
+							<div class="col-4 genPost">
+								<a href="<? the_permalink();?>">
+									<header class="entry-header">
+									<?php our_towns_post_thumbnail('small');
+										if (is_singular()) :
+											the_title( '<h1 class="entry-title">', '</h1>' );
+										else :
+											?> <h1><? the_title();?></h1><?
+										endif;?>
+									</header><!-- .entry-header -->
+									<div class="entry-content">
+										<? the_excerpt();?>
+									</div> <!-- .entry-content -->
+								</a>
+							</div>
+							<?
+							if($postNumber === 3)
+							{
+								break;
+							}
+							$postNumber++;
+						}
+					?>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="row">
+					<?
+						$postNumber = 1;
+						while($carouselPosts->have_posts())
+						{
+							$carouselPosts->the_post();
+							?>
+							<div class="col-4 genPost">
+								<a href="<? the_permalink();?>">
+									<header class="entry-header">
+									<?php our_towns_post_thumbnail('small');
+										if (is_singular()) :
+											the_title( '<h1 class="entry-title">', '</h1>' );
+										else :
+											?> <h1><? the_title();?></h1><?
+										endif;?>
+									</header><!-- .entry-header -->
+									<div class="entry-content">
+										<? the_excerpt();?>
+									</div> <!-- .entry-content -->
+								</a>
+							</div>
+							<?
+							if($postNumber === 3)
+							{
+								break;
+							}
+							$postNumber++;
+						}
+					?>
+					</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+			<!-- <a class="carousel-control-prev" href="#mycarousel" id="prevcontrol" role="button" data-slide="prev">
+            <span class="" aria-hidden="true"><img class=" " id="prev" src="https://www.ourtownsfoundation.org/wp-content/themes/our-towns/images/carousel-icons/prev.png" alt=""></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#mycarousel" id="nextcontrol" role="button" data-slide="next">
+            <span class="" aria-hidden="true"><img class=" " id="next" src="https://www.ourtownsfoundation.org/wp-content/themes/our-towns/images/carousel-icons/next.png" alt=""></span>
+            <span class="sr-only">Next</span>
+        </a> -->
 		</div>
 	</div>
 </main>

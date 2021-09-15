@@ -9,58 +9,18 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('postOne'); ?>>
-	<header class="entry-header">
-		<?php our_towns_post_thumbnail('big'); ?>
-		<!-- <div class="imgBlock"></div> -->
-		<?php
-		if (is_singular()) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
-		if ('post' === get_post_type()) :
-			?>
-			<div class="entry-meta">
-				<?
-				our_towns_posted_on();
-				our_towns_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif;?>
-	</header><!-- .entry-header -->
-
-
-	<div class="entry-content">
-		<?php
-		// the_content(
-		// 	sprintf(
-		// 		wp_kses(
-		// 			/* translators: %s: Name of current post. Only visible to screen readers */
-		// 			__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'our-towns' ),
-		// 			array(
-		// 				'span' => array(
-		// 					'class' => array(),
-		// 				),
-		// 			)
-		// 		),
-		// 		wp_kses_post( get_the_title() )
-		// 	)
-		// );
-
-		the_excerpt();
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'our-towns' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php our_towns_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+<article id="post-<?php the_ID(); ?>" <?php post_class('postOne');?>>
+	<a href="<? the_permalink();?>">
+		<header class="entry-header">
+			<?php our_towns_post_thumbnail('big');
+			if (is_singular()) :
+				the_title( '<h1 class="entry-title">', '</h1>' );
+			else :
+				?> <h1><? the_title();?></h1><?
+			endif;?>
+		</header><!-- .entry-header -->
+		<div class="entry-content">
+			<?php the_excerpt();?>
+		</div> <!-- .entry-content -->
+	</a>
+</article> <!-- #post-<?php the_ID(); ?> -->
