@@ -10,13 +10,20 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
-
+	<main id="" class="container-fluid">
+		<div class="row justify-content-start">
 		<?php
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
+			// get_template_part( 'template-parts/content', get_post_type() );
+			?>
+			<div class="col-12 bg-primary tallAfBoi">
+
+			</div>
+			<?
+			// the_content();
+
 
 			the_post_navigation(
 				array(
@@ -32,7 +39,7 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-
+		</div>
 	</main><!-- #main -->
 
 <?php
