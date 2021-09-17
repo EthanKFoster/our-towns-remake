@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('col-6 genPost'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('col-5 m-2 genPost report-shadow'); ?>>
 	<a href="<? the_permalink();?>">
 		<header class="entry-header">
 		<?php our_towns_post_thumbnail('small');
@@ -20,7 +20,16 @@
 			endif;?>
 		</header><!-- .entry-header -->
 		<div class="entry-content">
-			<? the_excerpt();?>
+			<?
+			if(has_excerpt())
+			{
+				echo get_the_excerpt();
+			}
+			else
+			{
+				echo wp_trim_words(get_the_content(), 18);
+			}
+			?>
 		</div> <!-- .entry-content -->
 	</a>
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -140,8 +140,12 @@ add_action( 'widgets_init', 'our_towns_widgets_init' );
  * Enqueue scripts and styles.
  */
 function our_towns_scripts() {
+	wp_enqueue_style('bootstrap','//cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css');
+
 	wp_enqueue_style( 'our-towns-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'our-towns-style', 'rtl', 'replace' );
+
+	wp_enqueue_script('bootstrap-js','//cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js',array('jquery'),'1.0',true);
 
 	wp_enqueue_script( 'our-towns-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 

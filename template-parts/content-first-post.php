@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('postOne');?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('postOne report-shadow');?>>
 	<a href="<? the_permalink();?>">
 		<header class="entry-header">
 			<?php our_towns_post_thumbnail('big');
@@ -20,7 +20,15 @@
 			endif;?>
 		</header><!-- .entry-header -->
 		<div class="entry-content">
-			<?php the_excerpt();?>
+			<?php 
+			if(has_excerpt())
+			{
+				echo get_the_excerpt();
+			}
+			else
+			{
+				echo wp_trim_words(get_the_content(), 18);
+			}?>
 		</div> <!-- .entry-content -->
 	</a>
 </article> <!-- #post-<?php the_ID(); ?> -->

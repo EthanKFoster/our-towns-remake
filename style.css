@@ -27,6 +27,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	margin: 0;
 }
 
+.whereAmI
+{
+	border: dotted green;
+}
+
 main
 {
 	display: flex;
@@ -39,7 +44,12 @@ main
 	margin: 0 auto;
 }
 
-/* Index Reports Styling */
+.container_single
+{
+	margin: 0 4rem;
+}
+
+/* Reports */
 
 .imgBlock
 {
@@ -71,7 +81,42 @@ main
 	text-decoration: underline;
 }
 
-/* Index Reports Styling */
+.reports-carousel
+{
+	border: 3px solid #ffde40;
+
+	padding: 75px 5%;
+}
+
+.reports-carousel-title
+{
+	position: relative;
+	bottom: 6.5rem;
+	left: 1rem;
+	width: max-content;
+
+	background-color: white;
+	padding: .5rem;
+}
+
+.carousel-control-prev
+{
+	position: absolute;
+	left: -6.8rem;
+}
+
+.carousel-control-next
+{
+	position: absolute;
+	right: -10rem;
+}
+
+.report-shadow
+{
+	box-shadow: 0px 23.9453px 38.3125px rgba(0, 0, 0, 0.07), 0px 15.5201px 22.4376px rgba(0, 0, 0, 0.0531481), 0px 9.22337px 12.2032px rgba(0, 0, 0, 0.0425185), 0px 4.78906px 6.22577px rgba(0, 0, 0, 0.035), 0px 1.9511px 3.12176px rgba(0, 0, 0, 0.0274815), 0px 0.443431px 1.50767px rgba(0, 0, 0, 0.0168519);
+}
+
+/* End Reports */
 
 /* Banner CSS */
 .banner
@@ -145,38 +190,8 @@ main
 
 /* End Title Lines */
 
+/* single.php */
 
 
-/* Voices From America Area */
 
-.reports-carousel
-{
-	border: 3px solid #ffde40;
-
-	padding: 75px 5%;
-}
-
-.reports-carousel-title
-{
-	position: relative;
-	bottom: 6.5rem;
-	left: 1rem;
-	width: max-content;
-
-	background-color: white;
-	padding: .5rem;
-}
-
-.carousel-control-prev
-{
-	position: absolute;
-	left: -6.8rem;
-}
-
-.carousel-control-next
-{
-	position: absolute;
-	right: -10rem;
-}
-
-/* End Voices From America Area */
+/* end single.php */

@@ -52,25 +52,29 @@ if ( ! function_exists( 'our_towns_posted_by' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'our_towns_entry_footer' ) ) :
+if(!function_exists('our_towns_entry_footer')) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function our_towns_entry_footer() {
+	function our_towns_entry_footer()
+	{
 		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
+		if('post' === get_post_type())
+		{
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'our-towns' ) );
-			if ( $categories_list ) {
+			$categories_list = get_the_category_list(esc_html__(', ', 'our-towns'));
+			if($categories_list)
+			{
 				/* translators: 1: list of categories. */
 				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'our-towns' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'our-towns' ) );
-			if ( $tags_list ) {
+			$tags_list = get_the_tag_list('', esc_html_x(', ', 'list item separator', 'our-towns'));
+			if($tags_list)
+			{
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'our-towns' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf('<span class="tags-links">' . esc_html__('Tagged %1$s', 'our-towns') . '</span>', $tags_list); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 
@@ -112,19 +116,50 @@ if ( ! function_exists( 'our_towns_entry_footer' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'our_towns_post_thumbnail' ) ) :
+if (!function_exists('our_towns_post_thumbnail')) :
 	/**
 	 * Displays an optional post thumbnail.
 	 *
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function our_towns_post_thumbnail() {
-		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+	function our_towns_post_thumbnail($size)
+	{
+		if (post_password_required() || is_attachment() || !has_post_thumbnail())
+		{
 			return;
 		}
 
-		if ( is_singular() ) :
+		if($size === 'big')
+		{
+			the_post_thumbnail('post-thumbnail',
+				array(
+					'class' => 'img-no-chill',
+					'alt' => the_title_attribute(
+						array(
+							'echo' => false,
+						)
+					),
+				)
+			);
+		return;
+		}
+		elseif ($size === 'small')
+		{
+			the_post_thumbnail('post-thumbnail',
+				array(
+					'class' => 'img-chill',
+					'alt' => the_title_attribute(
+						array(
+							'echo' => false,
+						)
+					),
+				)
+			);
+		return;
+		}
+
+		if (is_singular()) :
 			?>
 
 			<div class="post-thumbnail">
@@ -135,9 +170,9 @@ if ( ! function_exists( 'our_towns_post_thumbnail' ) ) :
 
 			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 				<?php
-					the_post_thumbnail(
-						'post-thumbnail',
+					the_post_thumbnail('post-thumbnail',
 						array(
+							'class' => 'img-chill',
 							'alt' => the_title_attribute(
 								array(
 									'echo' => false,
